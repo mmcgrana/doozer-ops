@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 require "rubygems"
-require "fraggle"
+require "bundler"
+Bundler.setup
 require "statsample"
+require "fraggle"
 
 $stdout.sync = true
 
