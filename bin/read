@@ -32,10 +32,10 @@ EM.run do
       client.get(nil, "/processes/#{sent}") do |r|
         received_at = Time.now
         received +=1
+        latency = received_at - sent_at
+        latencies << latency
         if verbose
-          latency = received_at - sent_at
           $stdout.puts("received=#{received} ok=#{r.ok?} rev=#{r.rev} latency=#{latency}")
-          latencies << latency
         elsif (received % 10 == 0)
           $stdout.print(".")
         end
