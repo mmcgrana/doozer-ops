@@ -56,10 +56,10 @@ echo "test udp" | nc -u $PRIVATE_IP_1 8046
 
 # install and start dooozerd on the first instance
 cd /opt
-wget --no-check-certificate https://github.com/downloads/ha/doozerd/doozer-0.5-linux-amd64.tar.gz
-tar xfz doozer-0.5-linux-amd64.tar.gz
-rm doozer-0.5-linux-amd64.tar.gz
-cd doozer-0.5
+wget --no-check-certificate https://github.com/downloads/ha/doozerd/doozer-0.6-linux-amd64.tar.gz
+tar xfz doozer-0.6-linux-amd64.tar.gz
+rm doozer-0.6-linux-amd64.tar.gz
+cd doozer-0.6
 ./doozerd -l $PRIVATE_IP_1:8046 -w 0.0.0.0:8047
 
 # indicate that we expect two more nodes to join this cluster as consensors
@@ -71,10 +71,10 @@ echo -n | ./doozer -a $PRIVATE_IP_1:8046 add /ctl/cal/2
 ssh -i doozer.pem ubuntu@$PUBLIC_IP_N
 sudo -i
 cd /opt
-wget --no-check-certificate https://github.com/downloads/ha/doozerd/doozer-0.5-linux-amd64.tar.gz
-tar xfz doozer-0.5-linux-amd64.tar.gz
-rm doozer-0.5-linux-amd64.tar.gz
-cd doozer-0.5
+wget --no-check-certificate https://github.com/downloads/ha/doozerd/doozer-0.6-linux-amd64.tar.gz
+tar xfz doozer-0.6-linux-amd64.tar.gz
+rm doozer-0.6-linux-amd64.tar.gz
+cd doozer-0.6
 ./doozerd -a $PRIVATE_IP_1:8046 -l $PRIVATE_IP_N:8046 -w 0.0.0.0:8047
 
 # check the web interface for one of the public ips
