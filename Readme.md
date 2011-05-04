@@ -20,3 +20,8 @@ Benchmark, writing, reading, and syncing a 1000 key dataset, with a pipeline wid
     $ bin/write 1000 5 --verbose
     $ bin/read 1000 5 --verbose
     $ bin/sink --verbose
+
+
+## Notes
+
+See `notes/ec2{try,bench}.sh` for sketches of setting up and benchmarking clusters on ec2.
