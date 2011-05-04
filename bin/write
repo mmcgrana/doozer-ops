@@ -52,6 +52,7 @@ EM.run do
           $stdout.puts("sd=#{vector.sd}")
           $stdout.puts("perc90=#{vector.percentil(90)}")
           $stdout.puts("perc99=#{vector.percentil(99)}")
+          $stdout.puts("max=#{vector.max}")
           EM.stop
         end
       end
