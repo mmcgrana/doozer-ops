@@ -6,13 +6,13 @@ touch doozer.log
 doozerd -l 127.0.0.1:8046 -w 0.0.0.0:8080 2>&1 &
 sleep 1
 
-# indicate that we expect two more nodes to join this cluster as consensors
+# indicate that we expect four more nodes to join this cluster as consensors
 echo -n | doozer -a 127.0.0.1:8046 add /ctl/cal/1
 echo -n | doozer -a 127.0.0.1:8046 add /ctl/cal/2
 echo -n | doozer -a 127.0.0.1:8046 add /ctl/cal/3
 echo -n | doozer -a 127.0.0.1:8046 add /ctl/cal/4
 
-# join the other 2 nodes to the cluster
+# join the other four nodes to the cluster
 doozerd -a 127.0.0.1:8046 -l 127.0.0.1:8047 -w 127.0.0.1:8081 2>&1 &
 doozerd -a 127.0.0.1:8046 -l 127.0.0.1:8048 -w 127.0.0.1:8082 2>&1 &
 doozerd -a 127.0.0.1:8046 -l 127.0.0.1:8049 -w 127.0.0.1:8083 2>&1 &
